@@ -24,7 +24,7 @@ par(op)
 
 # my attempt with some random data from online
 
-EMG1 <- read.csv("Random_EMG_1.txt")
+EMG1 <- read.csv("~/Test_runs/data_random/Random_EMG_1.txt")
 EMG1 <- EMG1[-c(1, 2, 3), ] # delete the first few rows of string data
 EMG1 <- sapply(EMG1, as.numeric)
 
