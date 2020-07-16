@@ -1,0 +1,26 @@
+EMG Acquisition
+Myomonitor IV
+Sampling Fz = 1000 Hz
+Onboard Bandpass Filter = 20 Hz – 450 Hz
+Signal Amplitude = mV
+
+EMG Channels
+CH1 = right tibialis anterior
+CH2 = right lateral gastrocnemius
+CH3 = right vastus lateralis
+CH4 = right biceps femoris
+CH5 = left tibialis anterior
+CH6 = left lateral gastrocnemius
+CH7 = left vastus lateralis
+CH8 = left biceps femoris
+
+CSV Raw Data Columns
+Time (sec) -- Not accurate in all cases.  To get accurate time (sec), start at 0.001, then proceed with period = 0.001 (Fs = 1000 Hz).
+CH1 = right tibialis anterior
+CH2 = right lateral gastrocnemius
+CH3 = right vastus lateralis
+CH4 = right biceps femoris
+CH5 = left tibialis anterior
+CH6 = left lateral gastrocnemius
+CH7 = left vastus lateralis
+CH8 = left biceps femoris
