@@ -1,0 +1,56 @@
+---
+title: "Untitled"
+author: "Terence McSweeney"
+date: "24/07/2020"
+output:
+  pdf_document: default
+  html_document: default
+  word_document: default
+---
+
+## Link
+
+Everything you need to know for making text tables is here: https://cran.r-project.org/web/packages/huxtable/vignettes/huxtable.html#introduction
+
+```{r}
+library(huxtable)
+library(readxl)
+library(dplyr) 
+ 
+jams <- hux(
+        Type  = c("Strawberry", "Raspberry", "Plum"),
+        Price = c(1.90, 2.10, 1.80)
+      )
+
+jams %>% 
+  set_caption("test")
+```
+
+```{r}
+library(huxtable)
+library(readxl)
+library(dplyr) 
+
+test_table <- read_excel("Table_incl_excl_crit.xlsx")
+
+test_table <- as_hux(test_table)
+
+test_table %>% 
+  set_background_color(evens, everywhere, "grey95") %>% 
+      set_markdown_contents(1, 2, "") %>%
+      set_tb_borders(brdr(0.3, "solid", "grey80")) %>% 
+      set_top_border_color(1, everywhere, "white") %>% 
+      set_bottom_border_color(10, everywhere, "white") %>%
+      set_all_padding(4) %>% 
+      set_outer_padding(5) %>% 
+      set_number_format(2) %>% 
+      set_bold(c(1,6), everywhere) %>% 
+      set_bottom_border(c(1,6), everywhere, brdr(thickness = 0.5, 
+                                            style = "solid", "black")) %>% 
+      set_width(1.0) %>% 
+      set_caption("Table 1. Proposed inclusion and exclusion criteria.")
+
+
+
+```
+

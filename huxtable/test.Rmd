@@ -1,0 +1,18 @@
+---
+title: "Untitled"
+author: "Terence McSweeney"
+date: "24/07/2020"
+output:
+  word_document: default
+  html_document: default
+---
+```{r}
+library(huxtable)
+ 
+jams <- hux(
+        Type  = c("Strawberry", "Raspberry", "Plum"),
+        Price = c(1.90, 2.10, 1.80)
+      )
+
+jams
+```
