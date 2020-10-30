@@ -1,0 +1,37 @@
+---
+title: "Data examples for presentation"
+author: "Terence McSweeney"
+date: "07/10/2020"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(biosignalEMG)
+
+```
+
+```{r}
+emg_IMU_4 <- read.csv("../home_test_data_20201004/emg_Run_4.csv") 
+emgB_4_rect <- emg_IMU_4[130000:210000,16]
+emgB_4_rect <- emg(emgB_4_rect, samplingrate = 1261, units = "mV", data.name = "L2 paraspinal muscle EMG")
+emgB_4_rect <- rectification(emgB_4_rect, rtype = "fullwave")
+plot(emgB_4_rect, main = "Free standing flexion and return EMG", type = "l")
+```
+
+```{r}
+plot(emg_IMU_4[14886:24600,3], emg_IMU_4[14886:24600,4], main = "Free standing flexion and return sagittal plane acceleration", 
+     xlab = "time (samples)", ylab = "L2 Accelerometer x-axis",type = "l")
+```
+
+```{r}
+nirs_4 <- read.csv("../home_test_data_20201004/nirs_Run_4.csv")
+plot(nirs_4[530:880,2], main = "Free standing flexion and return SmO2 (NIRS)", 
+     xlab = "time (samples)", ylab = "SmO2 at L2 paravertebral muscle", type = "l")
+```
+

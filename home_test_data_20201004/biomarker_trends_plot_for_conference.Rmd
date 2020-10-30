@@ -1,0 +1,27 @@
+---
+title: "Biomarker Trends Low Back Pain"
+author: "Terence McSweeney"
+output:
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(europepmc)
+library(cowplot)
+library(tidyverse)
+
+biomarker_trend <- europepmc::epmc_hits_trend(query = '("biomarker*" AND "back pain")', 
+                                         period = 2009:2020)
+
+biomarker_trend %>%
+  ggplot(aes(x = factor(year), y = (query_hits / all_hits))) +
+  geom_col(fill = "#56B4E9", width = 0.6, alpha = 0.9) +
+  scale_y_continuous(expand = c(0, 0)) +
+  theme_minimal_hgrid(12) +
+  labs(x = "Year", y = "Proportion of all published articles")
+```
+
